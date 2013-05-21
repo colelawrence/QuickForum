@@ -6,10 +6,17 @@ function get_title(){
 
 <?php include 'php/header.php'; ?>
 <!-- start index-->
-</head>
-<body>
+<div class="forums page">
+	<div class="left">
+		<ul class="forums">
+			<li>
+				<a><span></span></a>
+			</li>
+		</ul>
+	</div>
+	<div class="right">
 
-
-</body>
+	</div>
+</div>
 <!-- end index  -->
-<?php include 'php/footer.php'; ?>
+<?php include 'footer.php'; ?>
