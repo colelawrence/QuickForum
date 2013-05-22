@@ -1,0 +1,30 @@
+html {
+    /*background-image: url("/img/bg.png");  */
+    background-color: #E0E4CC;
+}.hd ul {
+	list-style: none;
+}.hd li {
+	display: inline-block;
+}.hd {
+	width:100%;
+	background-color: #111;
+	border-bottom: 3px solid #69D2E7;
+}.hd>.bar {
+	width: 1000px;
+	margin: 0 auto;
+}.hd>.bar>.logo {
+	padding: 40px;
+	color: #FFF;
+}.hd>.bar>ul{
+	margin:0;
+	height:35px;
+	padding:4px 8px 0;
+}.hd>.bar>ul>li>a{
+	display:inline-block;
+	color: #BBB;
+}.hd>.bar>ul>li>a:hover{
+	color: white;
+}.hd>.bar>ul>li>a>span{
+	padding:10px;
+	display:inline-block;
+}

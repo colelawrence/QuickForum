@@ -1,0 +1,45 @@
+.page {
+    margin: 40px auto;
+    width:1000px;
+}
+.left {
+    width: 73%;
+    padding: 15px 0 40px;
+    min-height: 510px;
+    float:left;
+    display: block;
+    background-color: white;
+}.left>table {
+    margin-left: 5%;
+    width:95%;
+}.left>table>tbody>tr>td{
+    color: black;
+}.left>table>tbody>tr>td a {
+    text-decoration: none;
+    display: inline-block;
+    padding:20px 0;
+    width: 100%;
+    color: black;
+}.left>table>tbody>tr>td a:hover {
+    text-decoration: underline;
+}
+.right {
+    width: 27%;
+    min-height: 100px;
+    float:right;
+    display: block;
+    background-color: #F1F2E9;
+}
+.pagehd {
+    width: 73%;
+    display: block;
+    background-color: #FFF;
+    border-bottom: 2px solid #A7DBD8;
+    float:left;
+}.pagehd>.bar>ul>li>a{
+    display:inline-block;
+    color: gray;
+}.pagehd>.bar>ul>li>a:hover{
+    color: black;
+    text-decoration: underline;
+}
