@@ -11,17 +11,19 @@
     <script src="lib/zepto.min.js"></script>
 </head>
 <body>
-<div class="hd">
-    
+<div class="univ">
+    <a href="/settings.php">Settings</a>
+</div>
+<div class="headerhd hd">
     <div class="nav-bar bar">
         <div class="logo">
-            <span><?php echo get_title();?></span>
+            <div><?php echo get_title();?></div>
         </div>
-        <ul>
+        <ul class="ull">
             <li>
-            	<a href="#forum">
-            		<span>Forums</span>
-            	</a>
+                <a href="/index.php">
+                    <span>Forums</span>
+                </a>
             </li>
             <li>
                 <a href="#recent">
@@ -29,9 +31,21 @@
                 </a>
             </li>
             <li>
-            	<a href="#members">
-            		<span>Members</span>
-            	</a>
+                <a href="#members">
+                    <span>Members</span>
+                </a>
+            </li>
+        </ul>
+        <ul class="ulr">
+            <li>
+                <a href="/index.php">
+                    <span>Login</span>
+                </a>
+            </li>
+            <li>
+                <a href="#recent">
+                    <span>Register</span>
+                </a>
             </li>
         </ul>
     </div>

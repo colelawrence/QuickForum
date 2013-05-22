@@ -1,7 +1,15 @@
 html {
     /*background-image: url("/img/bg.png");  */
     background-color: #E0E4CC;
-}.hd ul {
+}.univ{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:35px;
+text-align: center;
+}
+.hd ul {
 	list-style: none;
 }.hd li {
 	display: inline-block;
@@ -12,13 +20,23 @@ html {
 }.hd>.bar {
 	width: 1000px;
 	margin: 0 auto;
+}.hd.headerhd>.bar {
+	width: 1000px;
+	margin: 0 auto;
+	height:140px;
 }.hd>.bar>.logo {
+	height: 100px;
+}.hd>.bar>.logo>div {
 	padding: 40px;
 	color: #FFF;
 }.hd>.bar>ul{
 	margin:0;
 	height:35px;
 	padding:4px 8px 0;
+}.hd>.bar>ul.ull{
+	float:left;
+}.hd>.bar>ul.ulr{
+	float:right;
 }.hd>.bar>ul>li>a{
 	display:inline-block;
 	color: #BBB;

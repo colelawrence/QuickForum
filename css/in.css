@@ -12,13 +12,17 @@
 }.left>table {
     margin-left: 5%;
     width:95%;
+}.left>table>tbody>tr {
+    background-color: lightgray;
+}.left>table>tbody>tr.th {
+    background-color: white;
 }.left>table>tbody>tr>td{
     color: black;
 }.left>table>tbody>tr>td a {
     text-decoration: none;
     display: inline-block;
-    padding:20px 0;
-    width: 100%;
+    padding:20px 10%;
+    width: 80%;
     color: black;
 }.left>table>tbody>tr>td a:hover {
     text-decoration: underline;

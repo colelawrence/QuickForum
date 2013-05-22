@@ -2,18 +2,13 @@
     <div class="bar">
         <ul>
             <li>
-            	<a href="#home">
-            		<span>Home</span>
-            	</a>
-            </li>
-            <li>
-            	<a href="#forum">
+            	<a href="/index.php">
             		<span>Forums</span>
             	</a>
             </li>
             <li>
-            	<a href="#members">
-            		<span>About</span>
+            	<a href="http://wp.zombiehippie.com" target="_blank">
+            		<span>ZombieHippie</span>
             	</a>
             </li>
         </ul>
