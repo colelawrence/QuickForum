@@ -20,8 +20,7 @@ if( isset( $_POST["a"] )) {
       $title = $_POST["title"];
       $content = $_POST["content"];
       $date = date("Y-m-d H:i:s");
-      mysql_query("INSERT INTO qf_topics (author_id, title, content, creation)
-        VALUES ('$author_id', '$title', '$content', '&date')");
+      mysql_query("INSERT INTO qf_threads (author_id, title, content, creation) VALUES ('$author_id','$title','$content',NOW())");
       break;
     case 3:
       // Sign in
@@ -29,6 +28,8 @@ if( isset( $_POST["a"] )) {
     default:
       //code to be executed if n is different from both label1 and label2;
   }
+  header('Location: index.php');
+
 }
 
 ?>
@@ -55,9 +56,8 @@ if( isset( $_POST["a"] )) {
         </style>
     </head>
     <body>
-    <?php if( isset( $_POST["a"] )) { ?>
-        <span class="info"> <?php echo $_POST["a"]; ?></span>
-    <?php } ?>
+    <span class="info"><?php echo $a; ?></span>
+    <span class="info" style="top:80px"><?php echo $date; ?></span>
         <?php include 'php/header.php'; ?>
         <?php include 'php/threads.php'; ?>
         <?php include 'php/footer.php'; ?>

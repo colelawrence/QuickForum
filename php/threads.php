@@ -1,6 +1,6 @@
 <?php 
 
-$tsql = "SELECT title, author_id FROM qf_threads ORDER BY creation DESC LIMIT 10";
+$tsql = "SELECT title, author_id, id FROM qf_threads ORDER BY creation DESC LIMIT 10";
 $threads_array = mysql_query($tsql);
 
 ?>
@@ -29,15 +29,13 @@ $threads_array = mysql_query($tsql);
 <div class="container">
 	<div class="left-col">
 		<ul>
-			<?php if($a == 2) { //POST THREAD ?>
-				<li class="thread"><a href="#" class="thread-link"><?php echo $_POST["title"];?></a></li>
-			<?php }
+			<?php
 			if ( $threads_array ) {
 			  while($row = mysql_fetch_array($threads_array)) { ?>
 			    <li class="thread">
-			    	<a href='<?php 
-			    		echo "?thread=".$row["id"]."&t=".urlencode( $row["title"] );
-			    		?>' class="thread-link">$row["title"]
+			    	<a href="<?php 
+			    		echo "/".urlencode( $row['title'] ).".".$row['id'];
+			    		?>" class="thread-link"> <?php echo $row['title']; ?>
 					</a>
 				</li>
 			<?php }
