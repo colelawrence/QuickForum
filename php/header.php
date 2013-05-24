@@ -10,5 +10,6 @@ function act(a){
 	<a href="/" class="ribbon-btn">Home</a>
 	<a href="/" class="ribbon-btn">Forums</a>
 	<a href="/" class="ribbon-btn">Members</a>
-	<a href="#" onclick="act(3);" class="ribbon-btn fr">Sign in</a>
+	<a href="#" onclick="FB.login();" class="ribbon-btn fr">Log in</a>
+	<a href="#" onclick="FB.logout();" class="ribbon-btn fr">Log out</a>
 </div>
