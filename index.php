@@ -2,12 +2,14 @@
 // 1 = compose thread
 // 2 = post thread
 // 3 = signin
+require_once("php/passwords.php"); // Password variables file
 
+$response = "no response";
 include 'php/connect.php';
-//Connection String stored as $connect
-//Facebook initiallized to $facebook
 
-$select = mysql_select_db("zombiehi_qforums", $connect);
+
+$select = mysql_select_db($sqlDB, $connect);
+
 $a = 0;
 $body_content = "php/thread-list.php";
 
@@ -64,7 +66,7 @@ if( isset( $_POST["a"] )) {
     </head>
     <body>
     <span class="info"><?php echo $a; ?></span>
-    <span class="info" style="top:80px"><?php echo $date; ?></span>
+    <span class="info" style="bottom:0"><?php echo $response ?></span>
         <?php include 'php/header.php'; ?>
         <?php include $body_content; ?>
         <?php include 'php/footer.php'; ?>
