@@ -3,9 +3,12 @@
 .thread-link {padding:20px;display:block;text-decoration: none;}
 .thread-link:hover {text-decoration: underline;}
 </style>
-<div class="container o">
-			<a href="#" onclick="act(1);" class="ribbon-btn">New Thread</a>
-			</div>
+<?php // If we are logged in, display thread creation tools
+if($logged_in) {?>
+	<div class="container o">
+		<a href="#" onclick="act(1);" class="ribbon-btn">New Thread</a>
+	</div>
+<?php } ?>
 <div class="container">
 	<div class="left-col">
 		<ul>

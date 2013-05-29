@@ -1,8 +1,12 @@
 <?php
 // 1 = compose thread
 // 2 = post thread
-// 3 = signin
+// 3 = signout
 require_once("php/passwords.php"); // Password variables file
+
+session_start();
+
+$logged_in = false;
 
 $response = "no response";
 include 'php/connect.php';
@@ -35,7 +39,9 @@ if( isset( $_POST["a"] )) {
       header('Location: index.php');
       break;
     case 3:
-      // Sign in
+      // Sign out
+      session_destroy();
+      header('Location: index.php');
       break;
   }
 
@@ -66,7 +72,8 @@ if( isset( $_POST["a"] )) {
     </head>
     <body>
     <span class="info"><?php echo $a; ?></span>
-    <span class="info" style="bottom:0"><?php echo $response ?></span>
+    <span class="info" style="bottom:0"><?php echo $response; ?></span>
+    <span class="info" style="top:80px"><?php if(isset($facebook)) {echo $facebook->getUser();} else {echo "You are not logged in";} ?></span>
         <?php include 'php/header.php'; ?>
         <?php include $body_content; ?>
         <?php include 'php/footer.php'; ?>

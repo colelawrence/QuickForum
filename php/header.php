@@ -10,6 +10,19 @@ function act(a){
 	<a href="/" class="ribbon-btn">Home</a>
 	<a href="/" class="ribbon-btn">Forums</a>
 	<a href="/" class="ribbon-btn">Members</a>
-	<a href="https://www.facebook.com/dialog/oauth?client_id=<?php echo $appId;?>&redirect_uri=<?php echo urlencode( $appURL );?>" class="ribbon-btn fr">Log in</a>
-	<a href="#" onclick="" class="ribbon-btn fr">Log out</a>
+	<?php
+		// Check if we are logged in
+		if(!$logged_in) { 
+			// If not logged in, show log in button.
+			$log_href = "https://www.facebook.com/dialog/oauth?client_id=".$appId."&redirect_uri=".urlencode( $appURL );
+			$log_onclick = "";
+			$log_text = "Log in";
+		} else {
+			// If already logged in, show log out button.
+			$log_href = "#";
+			$log_onclick = "act(3);";
+			$log_text = "Log out";
+		}
+		echo '<a href="'.$log_href.'"onclick="'.$log_onclick.'"class="ribbon-btn fr">'.$log_text.'</a>';
+	?>
 </div>
