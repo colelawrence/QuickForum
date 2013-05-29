@@ -3,16 +3,24 @@
 // 2 = post thread
 // 3 = signin
 
-include 'php/connect.php';//Connection String stored as $connect
+include 'php/connect.php';
+//Connection String stored as $connect
+//Facebook initiallized to $facebook
 
 $select = mysql_select_db("zombiehi_qforums", $connect);
 $a = 0;
+$body_content = "php/thread-list.php";
 
 if( isset( $_POST["a"] )) {
   $a = $_POST["a"];
   switch ($a) {
+    default:
+    case 0:
+      $body_content = "php/thread-list.php";
+      break;
     case 1:
       // Compose
+      $body_content = "php/thread-compose.php";
       break;
     case 2:
       // Post Thread
@@ -21,14 +29,13 @@ if( isset( $_POST["a"] )) {
       $content = $_POST["content"];
       $date = date("Y-m-d H:i:s");
       mysql_query("INSERT INTO qf_threads (author_id, title, content, creation) VALUES ('$author_id','$title','$content',NOW())");
+      $body_content = "";
+      header('Location: index.php');
       break;
     case 3:
       // Sign in
       break;
-    default:
-      //code to be executed if n is different from both label1 and label2;
   }
-  header('Location: index.php');
 
 }
 
@@ -59,7 +66,7 @@ if( isset( $_POST["a"] )) {
     <span class="info"><?php echo $a; ?></span>
     <span class="info" style="top:80px"><?php echo $date; ?></span>
         <?php include 'php/header.php'; ?>
-        <?php include 'php/threads.php'; ?>
+        <?php include $body_content; ?>
         <?php include 'php/footer.php'; ?>
     </body>
 </html>
