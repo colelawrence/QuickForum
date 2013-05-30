@@ -1,4 +1,21 @@
 <?php
+function get_curl($vurl){
+	// Initiate the curl session
+	$ch = curl_init();
+	// Set the URL
+	curl_setopt($ch, CURLOPT_URL, $vurl);
+
+	// Return the output instead of displaying it directly
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+	// Execute the curl session
+	$response = curl_exec($ch);
+
+	// Close the curl session
+	curl_close($ch);
+
+	return $response;
+}
 
 // Variables $sqlURL, $sqlUser, $sqlPassword, stored in the passwords.php file
 $connect = mysql_connect($sqlURL, $sqlUser, $sqlPassword) or die ("Could not connect to Database"); 
@@ -12,25 +29,10 @@ if(!isset($_SESSION['access_token'])){
 	// check to see if we pressed the login button and redirected with a OAuth code
 	if(isset($_GET["code"])) {
 		// Variables $appId, $appSecret, $appURL, stored in the passwords.php file
-		$url="https://graph.facebook.com/oauth/access_token?client_id=".$appId."&redirect_uri=".urlencode($appURL)."&client_secret=".$appSecret."&code=".$_GET["code"];
+		$graph_token_url="https://graph.facebook.com/oauth/access_token?client_id=".$appId."&redirect_uri=".urlencode($appURL)."&client_secret=".$appSecret."&code=".$_GET["code"];
 		
-		// Initiate the curl session
-		$ch = curl_init();
-
-		// Set the URL
-		curl_setopt($ch, CURLOPT_URL, $url);
-
-		// Allow the headers
-		curl_setopt($ch, CURLOPT_HEADER, true);
-
-		// Return the output instead of displaying it directly
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-		// Execute the curl session
-		$response = curl_exec($ch);
-
-		// Close the curl session
-		curl_close($ch);
+		// Use function above to cURL get for our access_token
+		$response = get_curl($graph_token_url);
 
 		//Take away any parts of the response before the access token is defined.
 		$response=explode("access_token=", $response);

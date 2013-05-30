@@ -17,11 +17,15 @@ $select = mysql_select_db($sqlDB, $connect);
 $a = 0;
 $body_content = "php/thread-list.php";
 
+// $_POST["a"] is the integer value of our activity,
+// whether we are composing, posting, or signing out
+// on the index.php page
 if( isset( $_POST["a"] )) {
   $a = $_POST["a"];
   switch ($a) {
     default:
     case 0:
+      // Viewing the list of threads/home page
       $body_content = "php/thread-list.php";
       break;
     case 1:
@@ -30,17 +34,21 @@ if( isset( $_POST["a"] )) {
       break;
     case 2:
       // Post Thread
+      // Retrieve the POST data entered in the compose activity
       $author_id = $_POST["author_id"];
       $title = $_POST["title"];
       $content = $_POST["content"];
-      $date = date("Y-m-d H:i:s");
+      // Insert required values into the qf_threads table
       mysql_query("INSERT INTO qf_threads (author_id, title, content, creation) VALUES ('$author_id','$title','$content',NOW())");
       $body_content = "";
+      // Redirect to index without $_POST or &_GET parameters
       header('Location: index.php');
       break;
     case 3:
       // Sign out
+      // Destroy the session
       session_destroy();
+      // Return to index without url $_GET or $_POST parameters
       header('Location: index.php');
       break;
   }
